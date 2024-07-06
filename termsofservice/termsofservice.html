@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="timer.js" defer></script>
+    <script src="particles.js"></script>
+    <title>Terms of Service</title>
+</head>
+
+<body>
+    <!-- BACKGROUND NO EDIT -->
+    <div class="particles-js" id="particles-js"></div>
+
+    <div class="content-container">
+        <h1>Terms of Service</h1>
+
+        <hr>
+
+        <h2>Introduction</h2>
+        <p>Welcome to the Terms of Service ("TOS") for the Minecraft Server Management Discord Bot ("Bot"). By using the
+            Bot, you agree to comply with and be bound by the following terms. Please review these terms carefully
+            before using the Bot.</p>
+
+        <hr>
+
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing or using the Bot, you acknowledge that you have read, understood, and agree to be bound by these
+            TOS. If you do not agree with any part of these terms, you must not use the Bot.</p>
+
+        <hr>
+
+        <h2>Bot Usage</h2>
+        <p>The Bot is designed to assist in managing Minecraft servers via Discord. You agree to use the Bot only for
+            its intended purpose and in accordance with these TOS and any applicable laws and regulations.</p>
+
+        <hr>
+
+        <h2>Prohibited Conduct</h2>
+        <p>When using the Bot, you agree not to:</p>
+        <p>- Use the Bot for any illegal or unauthorized purpose.</p>
+        <p>- Disrupt or interfere with the Bot's operation or the servers or networks connected to the Bot.</p>
+        <p>- Attempt to gain unauthorized access to the Bot, other accounts, computer systems, or networks connected to
+            the Bot through hacking, password mining, or any other means.</p>
+        <p>- Reproduce, duplicate, copy, sell, trade, resell, or exploit any portion of the Bot without explicit
+            permission.</p>
+
+        <hr>
+
+        <h2>Intellectual Property</h2>
+        <p>All intellectual property rights in the Bot, including but not limited to code, design, logos, and
+            documentation, are owned by the developer. You are granted a limited, non-exclusive, non-transferable, and
+            revocable license to use the Bot for your personal or internal business purposes.</p>
+
+        <hr>
+
+        <h2>Privacy Policy</h2>
+        <p>Your privacy is critically important to us. Please refer to our Privacy Policy, which explains how we
+            collect, use, and protect your information when you use the Bot.</p>
+
+        <hr>
+
+        <h2>Disclaimer of Warranties</h2>
+        <p>The Bot is provided "as is" and "as available" without any warranties of any kind, either express or implied.
+            We do not warrant that the Bot will be uninterrupted, error-free, or free from viruses or other harmful
+            components.</p>
+
+        <hr>
+
+        <h2>Limitation of Liability</h2>
+        <p>In no event shall we be liable for any indirect, incidental, special, consequential, or punitive damages,
+            including but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting
+            from (i) your use or inability to use the Bot; (ii) any unauthorized access to or use of our servers and/or
+            any personal information stored therein; (iii) any interruption or cessation of transmission to or from the
+            Bot; (iv) any bugs, viruses, trojan horses, or the like that may be transmitted to or through the Bot by any
+            third party; or (v) any errors or omissions in any content or for any loss or damage of any kind incurred as
+            a result of your use of any content posted, emailed, transmitted, or otherwise made available via the Bot,
+            whether based on warranty, contract, tort, or any other legal theory, and whether or not we are advised of
+            the possibility of such damages.</p>
+
+        <hr>
+
+        <h2>Indemnification</h2>
+        <p>You agree to indemnify and hold harmless the developer, its affiliates, officers, agents, and employees, from
+            any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of
+            your use of the Bot, your violation of these TOS, or your violation of any rights of another.</p>
+
+        <hr>
+
+        <h2>Governing Law</h2>
+        <p>These TOS and any disputes arising out of or related to them shall be governed by and construed in accordance
+            with the laws of [Your Jurisdiction], without regard to its conflict of law principles.</p>
+
+        <hr>
+
+        <h2>Changes to the Terms</h2>
+        <p>We may modify these TOS from time to time. If we make changes, we will notify you by revising the date at the
+            bottom of this TOS and, in some cases, we may provide additional notice (such as adding a statement to our
+            website or sending you a notification). We encourage you to review the TOS periodically to stay informed
+            about our terms. By continuing to use the Bot after any changes to the TOS become effective, you agree to be
+            bound by the revised terms.</p>
+
+        <hr>
+
+        <h2>Contact Information</h2>
+        <p>If you have any questions about these Terms of Service, please contact us at:</p>
+        <p><strong>Email</strong>: skyeh.bsn@gmail.com<br>
+            <strong>Discord</strong>: _skyeh
+        </p>
+
+        <hr>
+
+        <footer>
+            <p id="last-updated">Last updated: [Date]</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('h1, h2, p, hr, footer');
+
+            function animateElements() {
+                elements.forEach((element) => {
+                    if (isElementInViewport(element)) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    } else {
+                        const rect = element.getBoundingClientRect();
+                        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+                        const direction = window.scrollY > lastScrollY ? 'down' : 'up';
+
+                        if ((direction === 'down' && rect.top < viewportHeight) ||
+                            (direction === 'up' && rect.bottom > 0)) {
+                            element.style.opacity = 1;
+                            element.style.transform = 'translateY(0)';
+                        } else {
+                            if (direction === 'down') {
+                                element.style.transform = 'translateY(20px)';
+                            } else {
+                                element.style.transform = 'translateY(-20px)';
+                            }
+                            element.style.opacity = 0;
+                        }
+                    }
+                });
+                lastScrollY = window.scrollY;
+            }
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+            }
+
+            let lastScrollY = window.scrollY;
+            animateElements();
+
+            document.addEventListener('scroll', animateElements);
+            window.addEventListener('resize', animateElements);
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
