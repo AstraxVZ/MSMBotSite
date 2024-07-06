@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="timer.js" defer></script>
+    <script src="particles.js"></script>
+    <title>Privacy Policy</title>
+</head>
+<body>
+    <!-- BACKGROUND NO EDIT -->
+    <div class="particles-js" id="particles-js"></div>
+
+    <div class="content-container">
+        <h1>Privacy Policy</h1>
+
+        <hr>
+
+        <h2>Introduction</h2>
+        <p>Welcome to the Privacy Policy for the Minecraft Server Management Discord Bot ("Bot"). Your privacy is critically important to me. This policy explains how I collect, use, and protect your information when you use my Bot.</p>
+
+        <hr>
+
+        <h2>Information We Collect</h2>
+        <p>The Minecraft Server Management Bot does not collect any personal data from users. The Bot requires your public IP address to connect to your server's RCON/query. This IP address, alongside server-related information retrieved during the connection, is used solely for the purpose of facilitating server management tasks while the Bot is actively connected. Once the Bot disconnects from your server, all collected IP addresses and associated data are permanently purged and not stored or shared beyond the immediate session.</p>
+
+        <hr>
+
+        <h2>Data Security</h2>
+        <p>We prioritize the security of the information necessary to connect to your server. We employ industry-standard measures to safeguard against unauthorized access, use, or disclosure of your IP address and server details. Your IP address is used in real-time during the Bot's operation and is not retained after the Bot terminates its connection to your server.</p>
+
+        <hr>
+
+        <h2>Your Rights</h2>
+        <p>Given that no personal information is collected or retained beyond the duration of the server management session, there are no personal data rights applicable under this policy. Should you have any inquiries or concerns regarding the usage of your IP address or other server information, please feel free to contact me directly for further clarification.</p>
+
+        <hr>
+
+        <h2>Changes to This Policy</h2>
+        <p>Periodically, updates may be made to this Privacy Policy. It is recommended that you review this policy periodically to remain informed about how your information is protected.</p>
+
+        <hr>
+
+        <h2>Contact Me</h2>
+        <p>If you have any questions about this Privacy Policy or my information practices, please do not hesitate to contact me at:</p>
+        <p><strong>Email</strong>: skyeh.bsn@gmail.com<br>
+        <strong>Discord</strong>: _skyeh</p>
+
+        <hr>
+
+        <footer>
+            <p id="last-updated">last updated</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('h1, h2, p, hr, footer');
+
+            function animateElements() {
+                elements.forEach((element) => {
+                    if (isElementInViewport(element)) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    } else {
+                        const rect = element.getBoundingClientRect();
+                        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+                        const direction = window.scrollY > lastScrollY ? 'down' : 'up';
+
+                        if ((direction === 'down' && rect.top < viewportHeight) ||
+                            (direction === 'up' && rect.bottom > 0)) {
+                            element.style.opacity = 1;
+                            element.style.transform = 'translateY(0)';
+                        } else {
+                            if (direction === 'down') {
+                                element.style.transform = 'translateY(20px)';
+                            } else {
+                                element.style.transform = 'translateY(-20px)';
+                            }
+                            element.style.opacity = 0;
+                        }
+                    }
+                });
+                lastScrollY = window.scrollY;
+            }
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+            }
+
+            let lastScrollY = window.scrollY;
+            animateElements();
+
+            document.addEventListener('scroll', animateElements);
+            window.addEventListener('resize', animateElements);
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
